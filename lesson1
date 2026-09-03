@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ооп_c_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Animals cat = new Animals();
+            cat.type = "Cat";
+            cat.age = 5;
+            cat.name = "Ларри";
+            cat.sound = "Mew!";
+            cat.getinfo();
+            cat.sayHello();
+            Console.WriteLine(cat.getinfo());
+            Console.WriteLine(cat.sayHello());
+
+            Animals Boozer = new Animals();
+            Boozer.type = "Алкаш";
+            Boozer.age = 67;
+            Boozer.name = "дядя Витя";
+            Boozer.sound = "Деньги гони, чёрт";
+            Console.WriteLine(Boozer.getinfo());
+            Console.WriteLine(Boozer.sayHello());
+        }
+    }
+
+    class Animals 
+    {
+        public string type;
+        public int age;
+        public string name;
+        public string sound;
+
+        public string getinfo() 
+        {
+            return $"Вид: {type}\nВозраст {age}\n Кличка {name}";
+        }
+
+        public string sayHello()
+        {
+            return sound;
+        }
+    }
+
+}
