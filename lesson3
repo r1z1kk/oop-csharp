@@ -1,0 +1,88 @@
+using System;
+
+namespace OOP_Csharp_IT_SOIP25_p1
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+           Employee e1 = new Manager("John");
+           e1.CalculateSalary(35000m);
+           Employee e2 = new Developer("Johny");
+           e2.CalculateSalary(35000m);
+           Employee e3 = new Cleaner("Donald");
+           e3.CalculateSalary(35000m);
+           Console.WriteLine(e1.ToString());
+           Console.WriteLine(e2.ToString());
+           Console.WriteLine(e3.ToString());
+        }
+    }
+
+    abstract class Employee
+    {
+        protected string name;
+        protected decimal salary;
+        public abstract void CalculateSalary(decimal salary);
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value.Length != 0 || value.Length < 20) name = value;
+            }
+        }   
+
+        public decimal Salary
+        {
+            get { return salary;}
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Name} Salary: {Salary:c}";
+        }
+    }
+
+    
+    
+    
+    class Manager : Employee
+    {
+       
+        public Manager(string name)
+        {
+            Name = name;
+        }
+
+        public override void CalculateSalary(decimal salary)
+        {
+            this.salary = salary * 10.0m;
+        }
+    }
+
+    class Developer : Employee
+    {
+        public Developer(string name)
+        {
+            Name = name;
+        }
+
+        public override void CalculateSalary(decimal salary)
+        {
+            this.salary = salary * 30.0m;
+        }
+    }
+
+    class Cleaner : Employee
+    {
+        public Cleaner(string name)
+        {
+            Name = name;
+        }
+
+        public override void CalculateSalary(decimal salary)
+        {
+            this.salary = salary * 1.0m;
+        }
+    }
+}
